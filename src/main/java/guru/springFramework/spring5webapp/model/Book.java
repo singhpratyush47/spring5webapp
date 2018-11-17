@@ -76,4 +76,31 @@ public class Book {
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+
+        Book book = (Book) o;
+
+        if (!id.equals(book.id)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", authors=" + authors +
+                '}';
+    }
 }
