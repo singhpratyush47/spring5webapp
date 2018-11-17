@@ -16,7 +16,20 @@ public class Author
     private String firstName;
     private String lastName;
 
+    /**
+     * this many to many mapping is done based on an intermediate table
+     * here on jointable name of the table in which the id of both table will bew stored is given
+     * and there are two sides the owning side and inverse side here Author is owning side
+     * and Books is inverse side
+     * depicted in joinColumn annotation
+     */
+
     @ManyToMany
+    @JoinTable(
+            name = "Author_Books",
+            joinColumns = {@JoinColumn(name = "author_id")},
+            inverseJoinColumns = {@JoinColumn(name = "book_id")}
+    )
     private Set<Book> books=new HashSet<>();
 
     public Author() {
