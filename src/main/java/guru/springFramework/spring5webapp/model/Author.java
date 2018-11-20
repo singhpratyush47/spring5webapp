@@ -91,11 +91,6 @@ public class Author
     }
 
     @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
-
-    @Override
     public String toString() {
         return "Author{" +
                 "id=" + id +
